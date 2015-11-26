@@ -1,6 +1,6 @@
 ATMEGA8-16PU
 ==================================================================
-Programming ATMEGA8-16PU with USBasp using AVRdude on OSX
+Programming ATMEGA8-16PU with USBasp using AVRdude on OSX. Using USBasp AVR programmer from betemcu.cn to flash HEX into atmel and using the same to power up the atmel so that LED can be blinked. USBasp has 10 header female FPC connector at the end and the pins are mirrored positions of the male header. 
 
 Wiring
 --------------------------------------
@@ -21,30 +21,40 @@ Components / Software
 Steps
 --------------------------------------
 - Compile the blink.c source code to .obj by executing
-	- avr-gcc -mmcu=atmega8 -Wall -Os -o blink.elf blink.c
+```
+	avr-gcc -mmcu=atmega8 -Wall -Os -o blink.elf blink.c
+```
 - Convert the .obj into Intel HEX by executing
-	- avr-objcopy -j .text -j .data -O ihex blink.elf blink.hex
+```
+	avr-objcopy -j .text -j .data -O ihex blink.elf blink.hex
+```
 - Connect the USBasp into usb port of the host computer and execute
-	- avrdude -c usbasp -p m8 -e -U flash:w:blink.hex
+```
+	avrdude -c usbasp -p m8 -e -U flash:w:blink.hex
+```
+- Check [avrdude tutorial] (http://www.micahcarrick.com/tutorials/avr-microcontroller-tutorial/getting-started.html) for details about the commands
 
 Debug
 --------------------------------------
-- Checking microcontroller USBasp connection
+- Checking microcontroller USBasp connection by executing this outputs the below
 	- avrdude -c usbasp -p m8
-	- Outputs
+```
 		avrdude: warning: cannot set sck period. please check for usbasp firmware update.
 		avrdude: AVR device initialized and ready to accept instructions
-
+		
 		Reading | ################################################## | 100% 0.00s
-
+		
 		avrdude: Device signature = 0x1e9307
-
+		
 		avrdude: safemode: Fuses OK (H:FF, E:D9, L:E1)
-
+		
 		avrdude done.  Thank you.
+```
 
-- Flashing output
-	- 	avrdude: warning: cannot set sck period. please check for usbasp firmware update.
+
+- Successful Flashing outputs this
+```
+		avrdude: warning: cannot set sck period. please check for usbasp firmware update.
 		avrdude: AVR device initialized and ready to accept instructions
 
 		Reading | ################################################## | 100% 0.00s
@@ -73,7 +83,7 @@ Debug
 		avrdude: safemode: Fuses OK (H:FF, E:D9, L:E1)
 
 		avrdude done.  Thank you.
-
+```
 
 Links
 --------------------------------------
