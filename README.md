@@ -1,10 +1,6 @@
 ATMEGA8-16PU
 ==================================================================
-<<<<<<< Updated upstream
-Programming ATMEGA8-16PU with USBasp using AVRdude on OSX. Using USBasp AVR programmer from betemcu.cn to flash HEX into atmel and using the same to power up the atmel so that LED can be blinked. USBasp has 10 header female FPC connector at the end and the pins are mirrored positions of the male header. 
-=======
 Programming ATMEGA8-16PU with USBasp using AVRdude on OSX. Using USBasp AVR programmer from betemcu.cn to flash HEX into atmel and using the same to power up the atmel so that LED can be blinked. USBasp has 10 header female FPC connector at the end and the pins are mirrored positions of the male header. The connection with USBasp is not needed to be removed while developing the firmware as it supplies the +5V power needed for the atmel. ATMEGA8 is a 8 bit microcontroller and 16PU denotes just the packaging.
->>>>>>> Stashed changes
 
 Wiring
 --------------------------------------
@@ -28,11 +24,8 @@ Components / Software
 
 Steps
 --------------------------------------
-<<<<<<< Updated upstream
-- Compile the blink.c source code to .obj by executing
-=======
 - Compile the blink.c source code to .obj by executing (replace atmega8 with your atmel microcontroller)
->>>>>>> Stashed changes
+
 ```
 	avr-gcc -mmcu=atmega8 -Wall -Os -o blink.elf blink.c
 ```
@@ -40,11 +33,7 @@ Steps
 ```
 	avr-objcopy -j .text -j .data -O ihex blink.elf blink.hex
 ```
-<<<<<<< Updated upstream
-- Connect the USBasp into usb port of the host computer and execute
-=======
 - Connect the USBasp into usb port of the host computer and execute. (replace m8 with your atmel microcontroller. Execute "avrdude -c usbasp" list all the compatible microcontroller with USBasp )
->>>>>>> Stashed changes
 ```
 	avrdude -c usbasp -p m8 -e -U flash:w:blink.hex
 ```
