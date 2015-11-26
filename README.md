@@ -9,8 +9,20 @@ Wiring
 </p>
 
 <p align="center">
-<img src="./wiring/wiring.jpeg" width=80% height=80%/>
+<img src="./wiring/wiring.jpeg" width=70% height=70%/>
 </p>
+
+USBasp Pin Connection
+--------------------------------------
+
+<p align="center">
+<img src="./wiring/isp-10-pin-connection-pinout.png" width=60% height=60%/>
+</p>
+
+<p align="center">
+<img src="./wiring/USBASP-10-pin-wiring-to-AVR-Atmega328-chip.png" width=60% height=60%/>
+</p>
+
 
 Components / Software
 --------------------------------------
